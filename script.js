@@ -46,12 +46,20 @@ var siteNav = {
     return false;
   },
   openHam: function () {
-    siteNav.open(this, this.parentElement.nextElementSibling, closeHamBtn);
+    siteNav.open(this, this.parentElement.parentElement.nextElementSibling, closeHamBtn);
     document.querySelector(".dark-background-overlay").classList.add("open");
+    document.querySelector('body').classList.add('ham-open');
   },
   closeHam: function () {
-    siteNav.close(this, this.parentElement, openHamBtn);
+    siteNav.close(closeHamBtn, document.getElementById('site-ham-menu'), openHamBtn);
     document.querySelector(".dark-background-overlay").classList.remove("open");
+    document.querySelector('body').classList.remove('ham-open');
+  },
+  closeHamClick: function (e) {
+    var hamContainer = document.querySelector('#site-nav .ham-menu');
+    if (hamContainer.classList.contains("open") && !hamContainer.contains(e.target) && !openHamBtn.contains(e.target)) {
+      siteNav.closeHam()
+    }
   },
   stickyNav: function () {
     if (window.innerWidth >= 900 && window.scrollY >= 140) {
@@ -92,6 +100,7 @@ for (var i = 0; i < auxMenus.length; i++) {
 //ham menu
 var openHamBtn = document.querySelector("#site-nav #site-ham-btn");
 var closeHamBtn = document.querySelector("#site-nav #site-ham-close");
+document.addEventListener('click', siteNav.closeHamClick)
 openHamBtn.addEventListener("click", siteNav.openHam);
 closeHamBtn.addEventListener("click", siteNav.closeHam);
 

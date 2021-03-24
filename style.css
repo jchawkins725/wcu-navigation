@@ -18,6 +18,9 @@ button {
 body {
   overflow-x: hidden;
 }
+body.ham-open {
+  overflow: hidden;
+}
 a {
   text-decoration: none;
 }
@@ -35,14 +38,14 @@ main {
 #site-nav {
   background: #592c88;
   height: 60px;
-  position: fixed;
   top: 0;
   width: 100%;
 }
 .top-nav {
-  position: absolute;
+  position: fixed;
   width: calc(100% - 72px);
   z-index: 1;
+  background: #592c88;
 }
 .top-nav .site-logo {
   width: 80px;
@@ -55,6 +58,7 @@ main {
   margin: auto;
   padding: 0px 20px;
   position: relative;
+  max-width: 1200px;
 }
 .top-nav .nav-container {
   display: flex;
@@ -144,7 +148,10 @@ main {
   display: none;
 }
 .main-nav {
+  position: fixed;
   height: 60px;
+  width: 100%;
+  background: #592c88;
 }
 .main-nav .nav-container {
   display: flex;
@@ -197,7 +204,7 @@ main {
 .main-nav button .fa-bars:after {
   top: 18px;
 }
-.main-nav .ham-menu {
+#site-nav .ham-menu {
   width: 100%;
   background: #592c88;
   position: fixed;
@@ -206,34 +213,40 @@ main {
   height: 100%;
   padding: 0px 50px;
   z-index: 2;
-  transition: transform 0.4s ease-out, visibility .4s;
+  transition: transform 0.4s ease-out, visibility 0.4s;
   visibility: hidden;
   overflow: scroll;
-  transform: translate3d(0,-100%,0);
+  transform: translate3d(0, -100%, 0);
 }
-.main-nav .ham-menu.open {
-    visibility: visible;
-    transform: translateZ(0);
-    height: 100%;
-    transition: transform 0.4s ease-out, visibility 0s;
+#site-nav .ham-menu.open {
+  visibility: visible;
+  transform: translateZ(0);
+  height: 100%;
+  transition: transform 0.4s ease-out, visibility 0s;
 }
-.main-nav .ham-menu h2 {
-  margin-top: 50px;
+#site-nav .ham-menu h2 {
+  margin: 50px 0px 10px 0px;
+  color: white;
+  font-weight: 600;
+  font-size: 24px;
+  text-transform: uppercase;
 }
-.main-nav .ham-menu > ul {
+#site-nav .ham-menu > ul {
   margin-bottom: 50px;
 }
-.main-nav .ham-menu > ul, .main-nav .ham-menu h2 {
+#site-nav .ham-menu > ul,
+#site-nav .ham-menu h2 {
   opacity: 0;
   transform: translateY(-20px);
-  transition: transform .6s, opacity .6s;
+  transition: transform 0.6s, opacity 0.6s;
 }
-.main-nav .ham-menu.open > ul, .main-nav .ham-menu.open h2 {
+#site-nav .ham-menu.open > ul,
+#site-nav .ham-menu.open h2 {
   opacity: 1;
   transform: translateY(0px);
-  transition: transform .6s .3s, opacity .6s .3s;
+  transition: transform 0.6s 0.3s, opacity 0.6s 0.3s;
 }
-.main-nav .ham-menu > button {
+#site-nav .ham-menu > button {
   display: block;
   position: absolute;
   right: 19px;
@@ -241,45 +254,80 @@ main {
   padding: 0px;
   width: 41px;
   height: 41px;
+  cursor: pointer;
+  background: none;
+  border: none;
 }
-.main-nav .ham-menu > button i {
+#site-nav .ham-menu > button i {
   font-size: 36px;
   color: #c1a775;
 }
-.main-nav .ham-menu a {
+#site-nav .ham-menu > ul {
+  border-top: solid #6b49a0 2px;
+}
+#site-nav .ham-menu li {
+  position: relative;
+}
+#site-nav .ham-menu > ul ul {
+  margin-left: 20px;
+}
+#site-nav .ham-menu a {
   width: 100%;
   height: 100%;
   color: white;
   font-size: 18px;
   line-height: 38px;
+  display: inline-block;
+  border-bottom: solid #6b49a0 2px;
+}
+#site-nav .ham-menu li button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 38px;
+  width: 42px;
+  background: none;
+  border: none;
+  color: #c1a775;
+}
+#site-nav .ham-menu > ul > li > button {
+  border-left: solid 2px #6b49a0;
+  border-right: solid 2px #6b49a0;
+  background: #4f2476;
+}
+#site-nav .ham-menu li button i {
+  font-size: 22px;
 }
 .dark-background-overlay {
-  background: rgba(0,0,0);
+  background: rgba(0, 0, 0);
   opacity: 0;
-  transition: opacity .5s, z-index 0s .5s, width 0s .5s;
+  transition: opacity 0.5s, z-index 0s 0.5s, width 0s 0.5s;
   width: 0%;
   height: 100%;
   top: 0;
   left: 0;
   z-index: -1;
-  position: absolute;
+  position: fixed;
 }
-@media (min-width:500px) {
-  .main-nav .ham-menu {
+@media (min-width: 500px) {
+  #site-nav .ham-menu {
     max-width: 414px;
     transform: translateX(414px);
   }
-  .main-nav .ham-menu > ul, .main-nav .ham-menu h2 {
+  #site-nav .ham-menu > ul,
+  #site-nav .ham-menu h2 {
     transform: translateX(40px);
   }
-  .main-nav .ham-menu.open > ul, .main-nav .ham-menu.open h2 {
+  #site-nav .ham-menu.open > ul,
+  #site-nav .ham-menu.open h2 {
     transform: translateX(0px);
   }
   .dark-background-overlay.open {
-    opacity: .7;
+    opacity: 0.7;
     z-index: 1;
     width: 100%;
-    transition: opacity .5s, width 0s;
+    cursor: url(xcursor.png) 2 2, auto;
+    transition: opacity 0.49s .01s, width 0s, z-index 0s .01s;
   }
 }
 @media (min-width: 900px) {
@@ -304,14 +352,13 @@ main {
     display: flex;
   }
   .top-nav img {
-    padding-top: 10px;
     margin: 15px 0px;
   }
   .top-nav .aux-background {
     background: #4f2476;
     height: 40px;
     min-width: 40px;
-    width: calc((100% - 1200px) / 2);
+    width: calc((100% - 1120px) / 2);
     position: absolute;
     top: 0;
     right: 0px;
@@ -496,6 +543,7 @@ main {
     display: block;
   }
   .main-nav {
+    position: static;
     border-top: 1px solid #707070;
     background: #592c88;
     width: 100%;
