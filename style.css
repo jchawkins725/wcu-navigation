@@ -270,6 +270,14 @@ main {
 }
 #site-nav .ham-menu > ul ul {
   margin-left: 20px;
+  visibility: hidden;
+  height: 0px;
+  transition: height .3s, visibility 0s .3s;
+  overflow: hidden;
+}
+#site-nav .ham-menu > ul li.open > ul {
+  visibility: visible;
+  transition: height .3s, visibility .3s;
 }
 #site-nav .ham-menu a {
   width: 100%;
@@ -277,8 +285,11 @@ main {
   color: white;
   font-size: 18px;
   line-height: 38px;
-  display: inline-block;
+  display: block;
   border-bottom: solid #6b49a0 2px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 #site-nav .ham-menu li button {
   position: absolute;
@@ -289,6 +300,7 @@ main {
   background: none;
   border: none;
   color: #c1a775;
+  cursor: pointer;
 }
 #site-nav .ham-menu > ul > li > button {
   border-left: solid 2px #6b49a0;
