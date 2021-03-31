@@ -1,424 +1,625 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <link rel="stylesheet" href="https://use.typekit.net/twe1glq.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://kit.fontawesome.com/dff9e66e1d.js"></script>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  </head>
 
-<head>
-  <link rel="stylesheet" href="https://use.typekit.net/twe1glq.css" />
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://kit.fontawesome.com/dff9e66e1d.js"></script>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-</head>
-
-<body>
-  <nav id="site-nav">
-    <div class="top-nav">
-      <div class="aux-background"></div>
-      <div class="nav-container">
-        <a href="/" class="site-logo"><img alt="Western Carolina University"
-            src="https://www.wcu.edu/_images/logos/WCU-white-logo.svg" /></a>
-        <ul class="aux-menu">
-          <li>
-            <a href="#" aria-haspopup="true" aria-expanded="false">News & Events</a>
-            <ul>
-              <li class="aux-h4">
-                <h4>Get the Latest</h4>
-              </li>
-              <li>
-                <a href="/stories/posts/index.aspx?tags=News"
-                  onclick="ga('send', 'event', 'header top nav', 'news and events - latest', 'wcu news')">WCU News</a>
-              </li>
-              <li>
-                <a href="/coronavirus/index.aspx"
-                  onclick="ga('send', 'event', 'header top nav', 'news and events - latest', 'public health updates')">COVID-19
-                  Updates</a>
-              </li>
-              <li>
-                <a href="/event-calendar/index.aspx"
-                  onclick="ga('send', 'event', 'header top nav', 'news and events - latest', 'events calendar')">WCU
-                  Events Calendar</a>
-              </li>
-              <li>
-                <a href="http://www.catamountsports.com/" target="_blank"
-                  onclick="ga('send', 'event', 'header top nav', 'news and events - latest', 'catamount sports')">Catamount
-                  Sports</a>
-              </li>
-              <li class="aux-h4">
-                <h4>Venues</h4>
-              </li>
-              <li>
-                <a href="/bardo-arts-center/" target="_blank"
-                  onclick="ga('send', 'event', 'header top nav', 'news and events - venues', 'bardo arts center')">Bardo
-                  Arts Center</a>
-              </li>
-              <li>
-                <a title="Liston B. Ramsey Regional Activity Center" href="https://www.wcu.edu/ramsey/" target="_blank"
-                  onclick="ga('send', 'event', 'header top nav', 'news and events - venues', 'ramsey')">Ramsey Activity
-                  Center</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="#" aria-haspopup="true" aria-expanded="false">Give to WCU</a>
-            <ul>
-              <li class="aux-h4">
-                <h4>Partner with Us</h4>
-              </li>
-              <li>
-                <a href="https://www.givecampus.com/campaigns/13332/donations/new" target="_blank"
-                  onclick="ga('send', 'event', 'header top nav', 'give - partner', 'make a gift')">Make a Gift Now</a>
-              </li>
-              <li>
-                <a href="https://www.givecampus.com/schools/WesternCarolinaUniversity/" target="_blank"
-                  onclick="ga('send', 'event', 'header top nav', 'give - partner','current campaigns')">Current
-                  Campaigns</a>
-              </li>
-              <li>
-                <a href="https://www.givecampus.com/campaigns/10915/donations/new" target="_blank"
-                  onclick="ga('send', 'event', 'header top nav', 'give - partner','support the installation')">Support
-                  the Installation</a>
-              </li>
-              <li>
-                <a href="/engage/give-to-wcu/types-of-gifts/index.aspx"
-                  onclick="ga('send', 'event', 'header top nav', 'give - partner', 'ways to give')">Ways to Give</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="#" aria-haspopup="true" aria-expanded="false">Quick Links</a>
-            <ul>
-              <li class="aux-h4">
-                <h4>Student Resources</h4>
-              </li>
-              <li>
-                <a href="https://www.wcu.edu/mywcu/index.aspx"
-                  onclick="ga('send', 'event', 'header top nav', 'quick links - student', 'mywcu')">myWCU</a>
-              </li>
-              <li>
-                <a href="https://wcu.blackboard.com/"
-                  onclick="ga('send', 'event', 'header top nav', 'quick links - student', 'blackboard')">Blackboard</a>
-              </li>
-              <li>
-                <a href="http://outlook.com/owa/catamount.wcu.edu/"
-                  onclick="ga('send', 'event', 'header top nav', 'quick links - student', 'email')">Email</a>
-              </li>
-              <li>
-                <a href="/hunter-library/index.aspx"
-                  onclick="ga('send', 'event', 'header top nav', 'quick links - student', 'library')">Library</a>
-              </li>
-              <li>
-                <a href="https://ithelp.wcu.edu/"
-                  onclick="ga('send', 'event', 'header top nav', 'quick links - student', 'it help')">IT Help</a>
-              </li>
-              <li>
-                <a href="/learn/academic-calendar.aspx"
-                  onclick="ga('send', 'event', 'header top nav', 'quick links - student', 'academic calendar')">Academic
-                  Calendar</a>
-              </li>
-              <li>
-                <a href="/discover/campus-services-and-operations/student-accounts-office/index.aspx"
-                  onclick="ga('send', 'event', 'header top nav', 'quick links - student', 'student accounts')">Students
-                  Accounts</a>
-              </li>
-              <li>
-                <a href="/coronavirus/index.aspx"
-                  onclick="ga('send', 'event', 'header top nav', 'quick links - student', 'covid 19')">COVID-19&nbsp;Updates</a>
-              </li>
-              <li>
-                <a href="https://info.wcu.edu/selfreport"
-                  onclick="ga('send', 'event', 'header top nav', 'quick links - student', 'covid self report')">COVID-19
-                  Self-Reporting</a>
-              </li>
-              <li class="aux-h4">
-                <h4>Maps &amp; Location</h4>
-              </li>
-              <li>
-                <a href="/apply/undergraduate-admissions/visit-wcu/index.aspx"
-                  onclick="ga('send', 'event', 'header top nav', 'maps and locations', 'visit wcu')">Visit WCU</a>
-              </li>
-              <li>
-                <a href="/discover/locations/main-campus/index.aspx"
-                  onclick="ga('send', 'event', 'header top nav', 'maps and locations', 'main campus')">Main Campus</a>
-              </li>
-              <li>
-                <a href="/discover/locations/biltmore-park/index.aspx"
-                  onclick="ga('send', 'event', 'header top nav', 'maps and locations', 'biltmore park')">WCU at Biltmore
-                  Park</a>
-              </li>
-              <li>
-                <a href="/discover/locations/main-campus/campus-map.aspx"
-                  onclick="ga('send', 'event', 'header top nav', 'maps and locations', 'campus map')">Campus Map</a>
-              </li>
-              <li class="aux-h4">
-                <h4>Find People</h4>
-              </li>
-              <li>
-                <a href="/faculty/index.aspx"
-                  onclick="ga('send', 'event', 'header top nav', 'find people', 'faculty directory')">Faculty
-                  Directory</a>
-              </li>
-              <li>
-                <a href="/discover/contact-wcu/staff-directory.aspx"
-                  onclick="ga('send', 'event', 'header top nav', 'find people', 'staff directory')">Staff Directory</a>
-              </li>
-              <li>
-                <a href="/discover/contact-wcu/index.aspx"
-                  onclick="ga('send', 'event', 'header top nav', 'find people', 'contact us')">Contact Us</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <button class="search-toggle" id="search-toggle-nav" aria-expanded="false" aria-label="Toggle Site Search"
-              aria-controls="site-search">
-              <span class="far fa-search"></span>
-            </button>
-            <div id="site-search" class="search">
-              <form action="/search-wcu.aspx">
-                <label for="as_q" style="display: none">Search the WCU site</label>
-                <input class="search-wcu" id="as_q" name="q" placeholder="Search Western Carolina..." type="text" />
-                <i class="far fa-search"></i>
-              </form>
-              <button id="search-close-nav" aria-expanded="false" aria-label="Close Site Search"
-                aria-controls="site-search">
-                <i class="fal fa-times"></i>
+  <body>
+    <nav id="site-nav">
+      <div class="top-nav">
+        <div class="aux-background"></div>
+        <div class="nav-container">
+          <a href="/" class="site-logo"
+            ><img
+              alt="Western Carolina University"
+              src="https://www.wcu.edu/_images/logos/WCU-white-logo.svg"
+          /></a>
+          <ul class="aux-menu">
+            <li>
+              <a href="#" aria-haspopup="true" aria-expanded="false"
+                >News & Events</a
+              >
+              <ul>
+                <li class="aux-h4">
+                  <h4>Get the Latest</h4>
+                </li>
+                <li>
+                  <a
+                    href="/stories/posts/index.aspx?tags=News"
+                    onclick="ga('send', 'event', 'header top nav', 'news and events - latest', 'wcu news')"
+                    >WCU News</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="/coronavirus/index.aspx"
+                    onclick="ga('send', 'event', 'header top nav', 'news and events - latest', 'public health updates')"
+                    >COVID-19 Updates</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="/event-calendar/index.aspx"
+                    onclick="ga('send', 'event', 'header top nav', 'news and events - latest', 'events calendar')"
+                    >WCU Events Calendar</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="http://www.catamountsports.com/"
+                    target="_blank"
+                    onclick="ga('send', 'event', 'header top nav', 'news and events - latest', 'catamount sports')"
+                    >Catamount Sports</a
+                  >
+                </li>
+                <li class="aux-h4">
+                  <h4>Venues</h4>
+                </li>
+                <li>
+                  <a
+                    href="/bardo-arts-center/"
+                    target="_blank"
+                    onclick="ga('send', 'event', 'header top nav', 'news and events - venues', 'bardo arts center')"
+                    >Bardo Arts Center</a
+                  >
+                </li>
+                <li>
+                  <a
+                    title="Liston B. Ramsey Regional Activity Center"
+                    href="https://www.wcu.edu/ramsey/"
+                    target="_blank"
+                    onclick="ga('send', 'event', 'header top nav', 'news and events - venues', 'ramsey')"
+                    >Ramsey Activity Center</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" aria-haspopup="true" aria-expanded="false"
+                >Give to WCU</a
+              >
+              <ul>
+                <li class="aux-h4">
+                  <h4>Partner with Us</h4>
+                </li>
+                <li>
+                  <a
+                    href="https://www.givecampus.com/campaigns/13332/donations/new"
+                    target="_blank"
+                    onclick="ga('send', 'event', 'header top nav', 'give - partner', 'make a gift')"
+                    >Make a Gift Now</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.givecampus.com/schools/WesternCarolinaUniversity/"
+                    target="_blank"
+                    onclick="ga('send', 'event', 'header top nav', 'give - partner','current campaigns')"
+                    >Current Campaigns</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.givecampus.com/campaigns/10915/donations/new"
+                    target="_blank"
+                    onclick="ga('send', 'event', 'header top nav', 'give - partner','support the installation')"
+                    >Support the Installation</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="/engage/give-to-wcu/types-of-gifts/index.aspx"
+                    onclick="ga('send', 'event', 'header top nav', 'give - partner', 'ways to give')"
+                    >Ways to Give</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" aria-haspopup="true" aria-expanded="false"
+                >Quick Links</a
+              >
+              <ul>
+                <li class="aux-h4">
+                  <h4>Student Resources</h4>
+                </li>
+                <li>
+                  <a
+                    href="https://www.wcu.edu/mywcu/index.aspx"
+                    onclick="ga('send', 'event', 'header top nav', 'quick links - student', 'mywcu')"
+                    >myWCU</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://wcu.blackboard.com/"
+                    onclick="ga('send', 'event', 'header top nav', 'quick links - student', 'blackboard')"
+                    >Blackboard</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="http://outlook.com/owa/catamount.wcu.edu/"
+                    onclick="ga('send', 'event', 'header top nav', 'quick links - student', 'email')"
+                    >Email</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="/hunter-library/index.aspx"
+                    onclick="ga('send', 'event', 'header top nav', 'quick links - student', 'library')"
+                    >Library</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://ithelp.wcu.edu/"
+                    onclick="ga('send', 'event', 'header top nav', 'quick links - student', 'it help')"
+                    >IT Help</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="/learn/academic-calendar.aspx"
+                    onclick="ga('send', 'event', 'header top nav', 'quick links - student', 'academic calendar')"
+                    >Academic Calendar</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="/discover/campus-services-and-operations/student-accounts-office/index.aspx"
+                    onclick="ga('send', 'event', 'header top nav', 'quick links - student', 'student accounts')"
+                    >Students Accounts</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="/coronavirus/index.aspx"
+                    onclick="ga('send', 'event', 'header top nav', 'quick links - student', 'covid 19')"
+                    >COVID-19&nbsp;Updates</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://info.wcu.edu/selfreport"
+                    onclick="ga('send', 'event', 'header top nav', 'quick links - student', 'covid self report')"
+                    >COVID-19 Self-Reporting</a
+                  >
+                </li>
+                <li class="aux-h4">
+                  <h4>Maps &amp; Location</h4>
+                </li>
+                <li>
+                  <a
+                    href="/apply/undergraduate-admissions/visit-wcu/index.aspx"
+                    onclick="ga('send', 'event', 'header top nav', 'maps and locations', 'visit wcu')"
+                    >Visit WCU</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="/discover/locations/main-campus/index.aspx"
+                    onclick="ga('send', 'event', 'header top nav', 'maps and locations', 'main campus')"
+                    >Main Campus</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="/discover/locations/biltmore-park/index.aspx"
+                    onclick="ga('send', 'event', 'header top nav', 'maps and locations', 'biltmore park')"
+                    >WCU at Biltmore Park</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="/discover/locations/main-campus/campus-map.aspx"
+                    onclick="ga('send', 'event', 'header top nav', 'maps and locations', 'campus map')"
+                    >Campus Map</a
+                  >
+                </li>
+                <li class="aux-h4">
+                  <h4>Find People</h4>
+                </li>
+                <li>
+                  <a
+                    href="/faculty/index.aspx"
+                    onclick="ga('send', 'event', 'header top nav', 'find people', 'faculty directory')"
+                    >Faculty Directory</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="/discover/contact-wcu/staff-directory.aspx"
+                    onclick="ga('send', 'event', 'header top nav', 'find people', 'staff directory')"
+                    >Staff Directory</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="/discover/contact-wcu/index.aspx"
+                    onclick="ga('send', 'event', 'header top nav', 'find people', 'contact us')"
+                    >Contact Us</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li>
+              <button
+                class="search-toggle"
+                id="search-toggle-nav"
+                aria-expanded="false"
+                aria-label="Toggle Site Search"
+                aria-controls="site-search"
+              >
+                <span class="far fa-search"></span>
               </button>
-            </div>
-          </li>
-        </ul>
-        <ul class="gateway-menu">
-          <li><a href="/discover">about</a></li>
-          <li><a href="/apply">admissions</a></li>
-          <li><a href="/learn">academics</a></li>
-          <li><a href="/experience">student life</a></li>
-          <li><a href="https://catamountsports.com/">athletics</a></li>
-          <li><a href="/engage">alumni</a></li>
-        </ul>
+              <div id="site-search" class="search">
+                <form action="/search-wcu.aspx">
+                  <label for="as_q" style="display: none"
+                    >Search the WCU site</label
+                  >
+                  <input
+                    class="search-wcu"
+                    id="as_q"
+                    name="q"
+                    placeholder="Search Western Carolina..."
+                    type="text"
+                  />
+                  <i class="far fa-search"></i>
+                </form>
+                <button
+                  id="search-close-nav"
+                  aria-expanded="false"
+                  aria-label="Close Site Search"
+                  aria-controls="site-search"
+                >
+                  <i class="fal fa-times"></i>
+                </button>
+              </div>
+            </li>
+          </ul>
+          <ul class="gateway-menu">
+            <li><a href="/discover">about</a></li>
+            <li><a href="/apply">admissions</a></li>
+            <li><a href="/learn">academics</a></li>
+            <li><a href="/experience">student life</a></li>
+            <li><a href="https://catamountsports.com/">athletics</a></li>
+            <li><a href="/engage">alumni</a></li>
+          </ul>
+        </div>
       </div>
-    </div>
-    <div class="main-nav">
-      <div class="nav-container">
-        <h2>Brinson Honors College</h2>
-        <button id="site-ham-btn" aria-expanded="false" aria-label="Open Site Menu" aria-controls="site-ham-menu">
-          <span>Menu</span>
-          <div><i class="far fa-bars"></i></div>
+      <div class="main-nav">
+        <div class="nav-container">
+          <a href="/"><h2>Brinson Honors College</h2></a>
+          <button
+            id="site-ham-btn"
+            aria-expanded="false"
+            aria-label="Open Site Menu"
+            aria-controls="site-ham-menu"
+          >
+            <span>Menu</span>
+            <div><i class="far fa-bars"></i></div>
+          </button>
+        </div>
+      </div>
+      <div class="ham-menu" id="site-ham-menu">
+        <button
+          id="site-ham-close"
+          aria-expanded="false"
+          aria-label="Close Site Menu"
+          aria-controls="site-ham-menu"
+        >
+          <i class="fal fa-times"></i>
         </button>
+        <a href="/learn/academic-enrichment/the-honors-college"><h3>Brinson Honors College</h3></a>
+        <ul class="ham-menu-list">
+          <li>
+            <a
+              href="/learn/academic-enrichment/the-honors-college/honors-admission/index.aspx"
+              >Admission</a
+            ><button
+              aria-expanded="false"
+              aria-label="menu toggle button"
+            >
+              <i class="far fa-angle-left"></i>
+            </button>
+            <ul>
+              <li>
+                <a
+                  href="/learn/academic-enrichment/the-honors-college/honors-admission/criteria.aspx"
+                  >Criteria</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/learn/academic-enrichment/the-honors-college/honors-admission/open-house-honors-track.aspx"
+                  >Open House - Honors Track</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a
+              href="/learn/academic-enrichment/the-honors-college/scholarships-for-honors-students/index.aspx"
+              >Scholarships</a
+            ><button
+              aria-expanded="false"
+              aria-label="menu toggle button"
+            >
+              <i class="far fa-angle-left"></i>
+            </button>
+            <ul>
+              <li>
+                <a
+                  href="/learn/academic-enrichment/the-honors-college/scholarships-for-honors-students/honors-college-scholars.aspx"
+                  >Brinson Honors College Scholars</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a
+              href="/learn/academic-enrichment/the-honors-college/honors-academics/index.aspx"
+              >Academics</a
+            ><button
+              aria-expanded="false"
+              aria-label="menu toggle button"
+            >
+              <i class="far fa-angle-left"></i>
+            </button>
+            <ul>
+              <li>
+                <a
+                  href="/learn/academic-enrichment/the-honors-college/honors-academics/honors-requirements.aspx"
+                  >Honors Requirements</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/learn/academic-enrichment/the-honors-college/honors-academics/honors-courses.aspx"
+                  >Honors Courses</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/learn/academic-enrichment/the-honors-college/honors-academics/honors-contracts.aspx"
+                  >Honors Contracts</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/learn/academic-enrichment/the-honors-college/honors-academics/study-abroad.aspx"
+                  >Study Abroad</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/learn/academic-enrichment/the-honors-college/honors-academics/honors-advising.aspx"
+                  >Brinson Honors College Advising</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/learn/academic-enrichment/the-honors-college/honors-academics/interdisciplinary-studies-degree.aspx"
+                  >Interdisciplinary Studies Degree</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/learn/academic-enrichment/the-honors-college/honors-academics/pre-professional-program/index.aspx"
+                  >Pre-Professional Program</a
+                ><button
+                  aria-expanded="false"
+                  aria-label="menu toggle button"
+                >
+                  <i class="far fa-angle-left"></i>
+                </button>
+                <ul>
+                  <li>
+                    <a
+                      href="/learn/academic-enrichment/the-honors-college/honors-academics/pre-professional-program/health-careers-information.aspx"
+                      >Health Careers Information</a
+                    >
+                    <button
+                      aria-expanded="false"
+                      aria-label="menu toggle button"
+                    >
+                      <i class="far fa-angle-left"></i>
+                    </button>
+                    <ul>
+                      <li>
+                        <a
+                          href="/learn/academic-enrichment/the-honors-college/honors-academics/pre-professional-program/health-careers-information.aspx"
+                          >Fourth Level</a
+                        >
+                        <button
+                          aria-expanded="false"
+                          aria-label="menu toggle button"
+                        >
+                          <i class="far fa-angle-left"></i>
+                        </button>
+                        <ul>
+                          <li>
+                            <a
+                              href="/learn/academic-enrichment/the-honors-college/honors-academics/pre-professional-program/health-careers-information.aspx"
+                              >Fifth Level</a
+                            >
+                            <button
+                              aria-expanded="false"
+                              aria-label="menu toggle button"
+                            >
+                              <i class="far fa-angle-left"></i>
+                            </button>
+                            <ul>
+                              <li>
+                                <a
+                                  href="/learn/academic-enrichment/the-honors-college/honors-academics/pre-professional-program/health-careers-information.aspx"
+                                  >Sixth Level with an extra long title to check
+                                  spacing</a
+                                >
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a
+                  href="/learn/academic-enrichment/the-honors-college/honors-academics/hc-honors-advantage.aspx"
+                  >The Honors Advantage</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a
+              href="/learn/academic-enrichment/the-honors-college/community/index.aspx"
+              >Community</a
+            ><button
+              aria-expanded="false"
+              aria-label="menu toggle button"
+            >
+              <i class="far fa-angle-left"></i>
+            </button>
+            <ul>
+              <li>
+                <a
+                  href="/learn/academic-enrichment/the-honors-college/community/HC-Ambassadors.aspx"
+                  >Brinson Honors College Ambassador Program</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/learn/academic-enrichment/the-honors-college/community/honors-college-board-of-directors.aspx"
+                  >Brinson Honors College Board of Directors</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/learn/academic-enrichment/the-honors-college/community/imagine-magazine.aspx"
+                  >Imagine Magazine</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/learn/academic-enrichment/the-honors-college/community/honors-college-advisory-board.aspx"
+                  >Brinson Honors College Advisory Board</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/learn/academic-enrichment/the-honors-college/community/hc-mentoring-program.aspx"
+                  >Brinson Honors College Mentoring Program</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/learn/academic-enrichment/the-honors-college/community/hc-ambassador-bios.aspx"
+                  >Honors Ambassador Bios</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="https://youtu.be/6cTDFjH-kew">Balsam Hall Virtual Tour</a>
+          </li>
+          <li>
+            <a
+              href="/learn/academic-enrichment/the-honors-college/ugres/index.aspx"
+              >Undergraduate Research</a
+            ><button
+              aria-expanded="false"
+              aria-label="menu toggle button"
+            >
+              <i class="far fa-angle-left"></i>
+            </button>
+            <ul>
+              <li>
+                <a
+                  href="/learn/academic-enrichment/the-honors-college/ugres/community-engagement-mini-grants.aspx"
+                  >Community Engagement Mini-Grants</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a
+              href="/learn/academic-enrichment/the-honors-college/contact-the-honors-college.aspx"
+              >Contact the Brinson Honors College</a
+            >
+          </li>
+        </ul>
+        <div class="social">
+          <h3>Connect With Us</h3>
+          <ul>
+            <li>
+              <a href="tel:8282277383"
+                ><i class="fas fa-phone"></i
+                >828.227.7383</a
+              >
+            </li>
+            <li>
+              <a href="mailto:honors@wcu.edu"
+                ><i class="fas fa-envelope"></i
+                >honors@wcu.edu</a
+              >
+            </li>
+            <li>
+              <a
+                href="/learn/academic-enrichment/the-honors-college/contact-the-honors-college.aspx"
+                ><i class="fas fa-clock""></i
+                >HOURS: 8am–5pm M-F</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.facebook.com/groups/wcuhonorscollege/"
+                target="_blank"
+                ><i class="fab fa-facebook-f"></i
+                >WCU Brinson Honors College Facebook</a
+              >
+            </li>
+            <li>
+              <a href="https://twitter.com/honorswcu" target="_blank"
+                ><i class="fab fa-twitter"></i
+                >WCU Brinson Honors College Twitter</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/wcuhonorscollege/"
+                target="_blank"
+                ><i class="fab fa-instagram"></i
+                >WCU Brinson Honors College Instagram</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="ham-gateways">
+          <h3>Explore WCU</h3>
+          <ul class="ham-gateway-menu">
+            <li><a href="/discover">About</a></li>
+            <li><a href="/apply">Admissions</a></li>
+            <li><a href="/learn">Academics</a></li>
+            <li><a href="/experience">Student life</a></li>
+            <li><a href="https://catamountsports.com/">Athletics</a></li>
+            <li><a href="/engage">Alumni</a></li>
+          </ul>
+        </div>
       </div>
-    </div>
-    <div class="ham-menu" id="site-ham-menu">
-      <button id="site-ham-close" aria-expanded="false" aria-label="Close Site Menu" aria-controls="site-ham-menu"><i class="fal fa-times"></i></button>
-      <h2>Brinson Honors College</h2>
-      <ul>
-        <li>
-          <a class="has-sub"
-            href="/learn/academic-enrichment/the-honors-college/honors-admission/index.aspx">Admission</a><button
-            class="sn-toggle" aria-expanded="false" aria-label="menu toggle button">
-            <i class="far fa-angle-left"></i>
-          </button>
-          <ul>
-            <li>
-              <a href="/learn/academic-enrichment/the-honors-college/honors-admission/criteria.aspx">Criteria</a>
-            </li>
-            <li>
-              <a href="/learn/academic-enrichment/the-honors-college/honors-admission/open-house-honors-track.aspx">Open
-                House - Honors Track</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a class="has-sub"
-            href="/learn/academic-enrichment/the-honors-college/scholarships-for-honors-students/index.aspx">Scholarships</a><button
-            class="sn-toggle" aria-expanded="false" aria-label="menu toggle button">
-            <i class="far fa-angle-left"></i>
-          </button>
-          <ul>
-            <li>
-              <a
-                href="/learn/academic-enrichment/the-honors-college/scholarships-for-honors-students/honors-college-scholars.aspx">Brinson
-                Honors College Scholars</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a class="has-sub"
-            href="/learn/academic-enrichment/the-honors-college/honors-academics/index.aspx">Academics</a><button
-            class="sn-toggle" aria-expanded="false" aria-label="menu toggle button">
-            <i class="far fa-angle-left"></i>
-          </button>
-          <ul>
-            <li>
-              <a href="/learn/academic-enrichment/the-honors-college/honors-academics/honors-requirements.aspx">Honors
-                Requirements</a>
-            </li>
-            <li>
-              <a href="/learn/academic-enrichment/the-honors-college/honors-academics/honors-courses.aspx">Honors
-                Courses</a>
-            </li>
-            <li>
-              <a href="/learn/academic-enrichment/the-honors-college/honors-academics/honors-contracts.aspx">Honors
-                Contracts</a>
-            </li>
-            <li>
-              <a href="/learn/academic-enrichment/the-honors-college/honors-academics/study-abroad.aspx">Study
-                Abroad</a>
-            </li>
-            <li>
-              <a href="/learn/academic-enrichment/the-honors-college/honors-academics/honors-advising.aspx">Brinson
-                Honors College Advising</a>
-            </li>
-            <li>
-              <a
-                href="/learn/academic-enrichment/the-honors-college/honors-academics/interdisciplinary-studies-degree.aspx">Interdisciplinary
-                Studies Degree</a>
-            </li>
-            <li>
-              <a class="has-sub"
-                href="/learn/academic-enrichment/the-honors-college/honors-academics/pre-professional-program/index.aspx">Pre-Professional
-                Program</a><button class="sn-toggle" aria-expanded="false" aria-label="menu toggle button">
-                <i class="far fa-angle-left"></i>
-              </button>
-              <ul>
-                <li>
-                  <a
-                    href="/learn/academic-enrichment/the-honors-college/honors-academics/pre-professional-program/health-careers-information.aspx">Health
-                    Careers Information</a>
-                    <button class="sn-toggle" aria-expanded="false" aria-label="menu toggle button">
-                      <i class="far fa-angle-left"></i>
-                    </button>
-                    <ul>
-                      <li>
-                        <a
-                          href="/learn/academic-enrichment/the-honors-college/honors-academics/pre-professional-program/health-careers-information.aspx">Fourth Level</a>
-                          <button class="sn-toggle" aria-expanded="false" aria-label="menu toggle button">
-                            <i class="far fa-angle-left"></i>
-                          </button>
-                          <ul>
-                            <li>
-                              <a
-                                href="/learn/academic-enrichment/the-honors-college/honors-academics/pre-professional-program/health-careers-information.aspx">Fifth Level</a>
-                                <button class="sn-toggle" aria-expanded="false" aria-label="menu toggle button">
-                                  <i class="far fa-angle-left"></i>
-                                </button>
-                                <ul>
-                                  <li>
-                                    <a
-                                      href="/learn/academic-enrichment/the-honors-college/honors-academics/pre-professional-program/health-careers-information.aspx">Sixth Level with an extra long title to check spacing</a>
-                                  </li>
-                                </ul>
-                            </li>
-                          </ul>
-                      </li>
-                    </ul>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a class="has-sub"
-                href="/learn/academic-enrichment/the-honors-college/honors-academics/pre-professional-program/index.aspx">Pre-Professional
-                Program</a><button class="sn-toggle" aria-expanded="false" aria-label="menu toggle button">
-                <i class="far fa-angle-left"></i>
-              </button>
-              <ul>
-                <li>
-                  <a
-                    href="/learn/academic-enrichment/the-honors-college/honors-academics/pre-professional-program/health-careers-information.aspx">Health
-                    Careers Information</a>
-                    <button class="sn-toggle" aria-expanded="false" aria-label="menu toggle button">
-                      <i class="far fa-angle-left"></i>
-                    </button>
-                    <ul>
-                      <li>
-                        <a
-                          href="/learn/academic-enrichment/the-honors-college/honors-academics/pre-professional-program/health-careers-information.aspx">Fourth Level</a>
-                          <button class="sn-toggle" aria-expanded="false" aria-label="menu toggle button">
-                            <i class="far fa-angle-left"></i>
-                          </button>
-                          <ul>
-                            <li>
-                              <a
-                                href="/learn/academic-enrichment/the-honors-college/honors-academics/pre-professional-program/health-careers-information.aspx">Fifth Level</a>
-                                <button class="sn-toggle" aria-expanded="false" aria-label="menu toggle button">
-                                  <i class="far fa-angle-left"></i>
-                                </button>
-                                <ul>
-                                  <li>
-                                    <a
-                                      href="/learn/academic-enrichment/the-honors-college/honors-academics/pre-professional-program/health-careers-information.aspx">Sixth Level with an extra long title to check spacing</a>
-                                  </li>
-                                </ul>
-                            </li>
-                          </ul>
-                      </li>
-                    </ul>
-                </li>
-                
-              </ul>
-            </li>
-            <li>
-              <a href="/learn/academic-enrichment/the-honors-college/honors-academics/hc-honors-advantage.aspx">The
-                Honors Advantage</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a class="has-sub"
-            href="/learn/academic-enrichment/the-honors-college/community/index.aspx">Community</a><button
-            class="sn-toggle" aria-expanded="false" aria-label="menu toggle button">
-            <i class="far fa-angle-left"></i>
-          </button>
-          <ul>
-            <li>
-              <a href="/learn/academic-enrichment/the-honors-college/community/HC-Ambassadors.aspx">Brinson Honors
-                College Ambassador Program</a>
-            </li>
-            <li>
-              <a
-                href="/learn/academic-enrichment/the-honors-college/community/honors-college-board-of-directors.aspx">Brinson
-                Honors College Board of Directors</a>
-            </li>
-            <li>
-              <a href="/learn/academic-enrichment/the-honors-college/community/imagine-magazine.aspx">Imagine
-                Magazine</a>
-            </li>
-            <li>
-              <a href="/learn/academic-enrichment/the-honors-college/community/honors-college-advisory-board.aspx">Brinson
-                Honors College Advisory Board</a>
-            </li>
-            <li>
-              <a href="/learn/academic-enrichment/the-honors-college/community/hc-mentoring-program.aspx">Brinson
-                Honors College Mentoring Program</a>
-            </li>
-            <li>
-              <a href="/learn/academic-enrichment/the-honors-college/community/hc-ambassador-bios.aspx">Honors
-                Ambassador Bios</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="https://youtu.be/6cTDFjH-kew">Balsam Hall Virtual Tour</a>
-        </li>
-        <li>
-          <a class="has-sub" href="/learn/academic-enrichment/the-honors-college/ugres/index.aspx">Undergraduate
-            Research</a><button class="sn-toggle" aria-expanded="false" aria-label="menu toggle button">
-            <i class="far fa-angle-left"></i>
-          </button>
-          <ul>
-            <li>
-              <a href="/learn/academic-enrichment/the-honors-college/ugres/community-engagement-mini-grants.aspx">Community
-                Engagement Mini-Grants</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="/learn/academic-enrichment/the-honors-college/contact-the-honors-college.aspx">Contact the Brinson
-            Honors College</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  <div class="dark-background-overlay"></div>
-  <main style="height: 200vh; text-align: center">
-    <h1>TITLE</h1>
-    <p>content</p>
-  </main>
-  <script src="script.js"></script>
-</body>
-
+    </nav>
+    <div class="dark-background-overlay"></div>
+    <main style="height: 200vh; text-align: center">
+      <h1>TITLE</h1>
+      <p>content</p>
+    </main>
+    <script src="script.js"></script>
+    <script src="focus-visible.js"></script>
+  </body>
 </html>

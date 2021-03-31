@@ -4,12 +4,14 @@ var siteNav = {
     el.classList.add("open");
     control.classList.add("open");
     third ? third.setAttribute("aria-expanded", "true") : null;
+    third ? third.classList.add("open") : null;
   },
   close: function (el, control, third) {
     el.setAttribute("aria-expanded", "false");
     el.classList.remove("open");
     control.classList.remove("open");
     third ? third.setAttribute("aria-expanded", "false") : null;
+    third ? third.classList.remove("open") : null;
   },
   inputColor: function () {
     this.value !== ""
@@ -45,20 +47,35 @@ var siteNav = {
     e.preventDefault();
     return false;
   },
-  openHam: function () {
-    siteNav.open(
-      this,
-      this.parentElement.parentElement.nextElementSibling,
-      closeHamBtn
-    );
-    document.querySelector(".dark-background-overlay").classList.add("open");
-    document.querySelector("body").classList.add("ham-open");
+  toggleHam: function () {
+    var opened = this.classList.contains("open");
+    if (opened) {
+      siteNav.close(
+        this,
+        this.parentElement.parentElement.nextElementSibling,
+        closeHamBtn
+      );
+      document
+        .querySelector(".dark-background-overlay")
+        .classList.remove("open");
+      document.querySelector("body").classList.remove("ham-open");
+      this.classList.add("reverse");
+    } else {
+      siteNav.open(
+        this,
+        this.parentElement.parentElement.nextElementSibling,
+        closeHamBtn
+      );
+      document.querySelector(".dark-background-overlay").classList.add("open");
+      document.querySelector("body").classList.add("ham-open");
+      this.classList.remove('reverse')
+    }
   },
   closeHam: function () {
     siteNav.close(
       closeHamBtn,
       document.getElementById("site-ham-menu"),
-      openHamBtn
+      toggleHamBtn
     );
     document.querySelector(".dark-background-overlay").classList.remove("open");
     document.querySelector("body").classList.remove("ham-open");
@@ -67,8 +84,7 @@ var siteNav = {
     var hamContainer = document.querySelector("#site-nav .ham-menu");
     if (
       hamContainer.classList.contains("open") &&
-      !hamContainer.contains(e.target) &&
-      !openHamBtn.contains(e.target)
+      document.querySelector('.dark-background-overlay').contains(e.target)
     ) {
       siteNav.closeHam();
     }
@@ -96,24 +112,34 @@ var siteNav = {
       }
     } else {
       var allOpenedLists = document.querySelectorAll("#site-ham-menu li.open");
-      var allOpenedSiblings = this.parentElement.parentElement.querySelectorAll("button.open");
-      var clickedList = this.parentElement.parentElement.querySelector("li.open > ul");
+      var allOpenedSiblings = this.parentElement.parentElement.querySelectorAll(
+        "button.open"
+      );
+      var clickedList = this.parentElement.parentElement.querySelector(
+        "li.open > ul"
+      );
       var subtractedHeight = clickedList ? clickedList.offsetHeight : 0;
       var addedHeight = this.nextElementSibling.childElementCount * 40;
       if (allOpenedSiblings.length > 0) {
-        for (var i=0; i<allOpenedLists.length; i++) {
-          var openedList = allOpenedLists[i].children[allOpenedLists[i].children.length - 1];
-          var testing = openedList.offsetHeight - subtractedHeight + addedHeight
+        for (var i = 0; i < allOpenedLists.length; i++) {
+          var openedList =
+            allOpenedLists[i].children[allOpenedLists[i].children.length - 1];
+          var testing =
+            openedList.offsetHeight - subtractedHeight + addedHeight;
           openedList.style.height = testing + "px";
         }
-        for (var i=0; i<allOpenedSiblings.length; i++) {
-          siteNav.close(allOpenedSiblings[i], allOpenedSiblings[i].parentElement)
+        for (var i = 0; i < allOpenedSiblings.length; i++) {
+          siteNav.close(
+            allOpenedSiblings[i],
+            allOpenedSiblings[i].parentElement
+          );
           allOpenedSiblings[i].nextElementSibling.style.height = "0px";
         }
       } else {
-        for (var i=0; i<allOpenedLists.length; i++) {
-          var openedList = allOpenedLists[i].children[allOpenedLists[i].children.length - 1];
-          var testing = openedList.offsetHeight  + addedHeight
+        for (var i = 0; i < allOpenedLists.length; i++) {
+          var openedList =
+            allOpenedLists[i].children[allOpenedLists[i].children.length - 1];
+          var testing = openedList.offsetHeight + addedHeight;
           openedList.style.height = testing + "px";
         }
       }
@@ -158,11 +184,11 @@ for (var i = 0; i < auxMenus.length; i++) {
 }
 
 //ham menu
-var openHamBtn = document.querySelector("#site-nav #site-ham-btn");
+var toggleHamBtn = document.querySelector("#site-nav #site-ham-btn");
 var closeHamBtn = document.querySelector("#site-nav #site-ham-close");
 var toggleHamBtns = document.querySelectorAll("#site-ham-menu ul button");
 document.addEventListener("click", siteNav.closeHamClick);
-openHamBtn.addEventListener("click", siteNav.openHam);
+toggleHamBtn.addEventListener("click", siteNav.toggleHam);
 closeHamBtn.addEventListener("click", siteNav.closeHam);
 for (var i = 0; i < toggleHamBtns.length; i++) {
   toggleHamBtns[i].addEventListener("click", siteNav.toggleMenusHam);

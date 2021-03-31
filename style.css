@@ -34,6 +34,9 @@ input {
 main {
   padding-top: 60px;
 }
+.js-focus-visible :focus:not(.focus-visible) {
+  outline: none;
+}
 /* Nav */
 #site-nav {
   background: #592c88;
@@ -44,7 +47,7 @@ main {
 .top-nav {
   position: fixed;
   width: calc(100% - 72px);
-  z-index: 1;
+  z-index: 2;
   background: #592c88;
 }
 .top-nav .site-logo {
@@ -152,6 +155,7 @@ main {
   height: 60px;
   width: 100%;
   background: #592c88;
+  z-index: 1;
 }
 .main-nav .nav-container {
   display: flex;
@@ -194,15 +198,119 @@ main {
   position: absolute;
   left: 0px;
 }
-.main-nav button .fa-bars:before {
-  top: 9px;
-}
 .main-nav button .fa-bars {
   top: 10px;
   left: 7.5px;
 }
+.main-nav button .fa-bars:before {
+  top: 9px;
+  opacity: 1;
+  transition: opacity 0.25s;
+}
 .main-nav button .fa-bars:after {
   top: 18px;
+}
+.main-nav button.open .fa-bars {
+  animation: line-one-move 0.5s forwards;
+}
+.main-nav button.open .fa-bars:before {
+  animation: line-two-move 0.5s forwards;
+}
+.main-nav button.open .fa-bars:after {
+  animation: line-three-move 0.5s forwards;
+}
+.main-nav button.reverse .fa-bars {
+  animation: line-one-move-back 0.5s forwards;
+}
+.main-nav button.reverse .fa-bars:before {
+  animation: line-two-move-back 0.5s forwards;
+}
+.main-nav button.reverse .fa-bars:after {
+  animation: line-three-move-back 0.5s forwards;
+}
+@keyframes line-one-move {
+  0% {
+    -webkit-transform: translateY(0px) rotate(0deg);
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    -webkit-transform: translateY(9px) rotate(0deg);
+    transform: translateY(9px) rotate(0deg);
+  }
+  100% {
+    -webkit-transform: translateY(9px) rotate(45deg);
+    transform: translateY(9px) rotate(45deg);
+  }
+}
+@keyframes line-one-move-back {
+  0% {
+    -webkit-transform: translateY(9px) rotate(45deg);
+    transform: translateY(9px) rotate(45deg);
+  }
+  50% {
+    -webkit-transform: translateY(9px) rotate(0deg);
+    transform: translateY(9px) rotate(0deg);
+  }
+  100% {
+    -webkit-transform: translateY(0px) rotate(0deg);
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+@keyframes line-two-move {
+  0% {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+  50% {
+    -webkit-transform: translateY(-9px);
+    transform: translateY(-9px);
+  }
+  100% {
+    -webkit-transform: translateY(-9px);
+    transform: translateY(-9px);
+  }
+}
+@keyframes line-two-move-back {
+  0% {
+    -webkit-transform: translateY(-9px);
+    transform: translateY(-9px);
+  }
+  50% {
+    -webkit-transform: translateY(-9px);
+    transform: translateY(-9px);
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+}
+@keyframes line-three-move-back {
+  0% {
+    -webkit-transform: translateY(-18px) rotate(-90deg);
+    transform: translateY(-18px) rotate(-90deg);
+  }
+  50% {
+    -webkit-transform: translateY(-18px) rotate(0deg);
+    transform: translateY(-18px) rotate(0deg);
+  }
+  100% {
+    -webkit-transform: translateY(0px) rotate(0deg);
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+@keyframes line-three-move {
+  0% {
+    -webkit-transform: translateY(0px) rotate(0deg);
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    -webkit-transform: translateY(-18px) rotate(0deg);
+    transform: translateY(-18px) rotate(0deg);
+  }
+  100% {
+    -webkit-transform: translateY(-18px) rotate(-90deg);
+    transform: translateY(-18px) rotate(-90deg);
+  }
 }
 #site-nav .ham-menu {
   width: 100%;
@@ -211,9 +319,9 @@ main {
   right: 0px;
   top: 0px;
   height: 100%;
-  padding: 0px 50px;
-  z-index: 2;
-  transition: transform 0.4s ease-out, visibility 0.4s;
+  padding: 70px 50px 50px;
+  z-index: auto;
+  transition: transform 0.5s cubic-bezier(0, 0, 0.17, 0.93), visibility 0.4s;
   visibility: hidden;
   overflow: scroll;
   transform: translate3d(0, -100%, 0);
@@ -222,48 +330,47 @@ main {
   visibility: visible;
   transform: translateZ(0);
   height: 100%;
-  transition: transform 0.4s ease-out, visibility 0s;
+  transition: transform 0.5s cubic-bezier(0, 0, 0.17, 0.93), visibility 0s;
 }
-#site-nav .ham-menu h2 {
-  margin: 50px 0px 10px 0px;
+#site-nav .ham-menu a h3 {
+  margin: 0px 0px 10px 0px;
   color: white;
   font-weight: 600;
   font-size: 24px;
   text-transform: uppercase;
 }
 #site-nav .ham-menu > ul {
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
-#site-nav .ham-menu > ul,
-#site-nav .ham-menu h2 {
+#site-nav .ham-menu .ham-menu-list,
+#site-nav .ham-menu .social > ul,
+#site-nav .ham-menu .ham-gateways > ul,
+#site-nav .ham-menu h3 {
   opacity: 0;
   transform: translateY(-20px);
   transition: transform 0.6s, opacity 0.6s;
 }
-#site-nav .ham-menu.open > ul,
-#site-nav .ham-menu.open h2 {
+#site-nav .ham-menu.open .ham-menu-list,
+#site-nav .ham-menu.open .social > ul,
+#site-nav .ham-menu.open .ham-gateways > ul,
+#site-nav .ham-menu.open h3 {
   opacity: 1;
   transform: translateY(0px);
   transition: transform 0.6s 0.3s, opacity 0.6s 0.3s;
 }
 #site-nav .ham-menu > button {
-  display: block;
-  position: absolute;
-  right: 19px;
-  top: 13px;
-  padding: 0px;
-  width: 41px;
-  height: 41px;
-  cursor: pointer;
-  background: none;
-  border: none;
+  display: none;
 }
 #site-nav .ham-menu > button i {
   font-size: 36px;
   color: #c1a775;
+  transition: transform 0.2s;
 }
 #site-nav .ham-menu > ul {
   border-top: solid #6b49a0 2px;
+}
+#site-nav .ham-menu > ul > li.open > a {
+  font-weight: 600;
 }
 #site-nav .ham-menu li {
   position: relative;
@@ -272,14 +379,14 @@ main {
   margin-left: 20px;
   visibility: hidden;
   height: 0px;
-  transition: height .3s, visibility 0s .3s;
+  transition: height 0.3s, visibility 0s 0.3s;
   overflow: hidden;
 }
 #site-nav .ham-menu > ul li.open > ul {
   visibility: visible;
-  transition: height .3s, visibility .3s;
+  transition: height 0.3s, visibility 0.3s;
 }
-#site-nav .ham-menu a {
+#site-nav .ham-menu ul a {
   width: 100%;
   height: 100%;
   color: white;
@@ -290,6 +397,27 @@ main {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  transition: background 0.3s, padding 0.3s;
+}
+#site-nav .ham-menu .social ul a {
+  font-size: 16px;
+  border-bottom: 0px;
+  line-height:30px;
+}
+#site-nav .ham-menu .social a i {
+  padding-right: 10px;
+}
+#site-nav .ham-menu .social a:hover, #site-nav .ham-menu .ham-gateway-menu a:hover {
+  color: #c1a775;
+}
+#site-nav .ham-menu a[aria-current="page"] {
+  color: #c1a775;
+  font-weight: 600;
+}
+#site-nav .ham-menu .ham-menu-list a:hover {
+  background: #6b49a0;
+  transition: background 0.3s, padding 0.3s;
+  padding-left: 10px;
 }
 #site-nav .ham-menu li button {
   position: absolute;
@@ -297,7 +425,7 @@ main {
   right: 0;
   height: 38px;
   width: 42px;
-  background: none;
+  background: #592c88;
   border: none;
   color: #c1a775;
   cursor: pointer;
@@ -306,9 +434,36 @@ main {
   border-left: solid 2px #6b49a0;
   border-right: solid 2px #6b49a0;
   background: #4f2476;
+  transition: background 0.3s;
+}
+#site-nav .ham-menu li button:hover {
+  background: #6b49a0;
 }
 #site-nav .ham-menu li button i {
   font-size: 22px;
+  padding-top: 3px;
+  transition: transform 0.3s;
+}
+#site-nav .ham-menu li button.open i {
+  transform: rotate(-90deg);
+  transition: transform 0.3s;
+}
+#site-nav .ham-menu .social {
+  margin-bottom: 20px;
+}
+#site-nav .ham-menu .social h3, #site-nav .ham-menu .ham-gateways h3 {
+  color: white;
+  text-transform: uppercase;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+#site-nav .ham-menu .ham-gateway-menu {
+  columns: 2;
+}
+#site-nav .ham-menu .ham-gateway-menu a {
+  border: none;
+  font-size: 16px;
+  line-height: 26px;
 }
 .dark-background-overlay {
   background: rgba(0, 0, 0);
@@ -320,26 +475,57 @@ main {
   left: 0;
   z-index: -1;
   position: fixed;
+  display: none;
 }
 @media (min-width: 500px) {
+  .top-nav {
+    z-index: 1;
+  }
+  .main-nav {
+    z-index: auto;
+  }
   #site-nav .ham-menu {
     max-width: 414px;
     transform: translateX(414px);
+    z-index: 2;
+    padding: 50px;
   }
-  #site-nav .ham-menu > ul,
-  #site-nav .ham-menu h2 {
+  #site-nav .ham-menu > button {
+    display: block;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    padding: 0px;
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+  .main-nav button.open .fa-bars, .main-nav button.open .fa-bars:before, .main-nav button.open .fa-bars:after {
+    animation: none;
+  }
+  #site-nav .ham-menu .ham-menu-list,
+  #site-nav .ham-menu .social > ul,
+  #site-nav .ham-menu .ham-gateways > ul,
+  #site-nav .ham-menu h3 {
     transform: translateX(40px);
   }
-  #site-nav .ham-menu.open > ul,
-  #site-nav .ham-menu.open h2 {
+  #site-nav .ham-menu.open .ham-menu-list,
+  #site-nav .ham-menu.open .social > ul,
+  #site-nav .ham-menu.open .ham-gateways > ul,
+  #site-nav .ham-menu.open h3 {
     transform: translateX(0px);
+  }
+  .dark-background-overlay {
+    display: block;
   }
   .dark-background-overlay.open {
     opacity: 0.7;
     z-index: 1;
     width: 100%;
     cursor: url(xcursor.png) 2 2, auto;
-    transition: opacity 0.49s .01s, width 0s, z-index 0s .01s;
+    transition: opacity 0.49s 0.01s, width 0s, z-index 0s 0.01s;
   }
 }
 @media (min-width: 900px) {
@@ -352,6 +538,7 @@ main {
     height: 140px;
     z-index: 1;
     width: 100%;
+    border-bottom: 1px solid #707070;
   }
   .nav-container {
     /*max-width: 1280px;*/
@@ -549,6 +736,9 @@ main {
     padding: 0px 1.2vw;
     border-right: solid 2px #c1a775;
   }
+  .gateway-menu > li > a:hover {
+    color: #c1a775;
+  }
   .gateway-menu > li:last-of-type > a {
     padding-right: 0px;
     border-right: none;
@@ -556,7 +746,6 @@ main {
   }
   .main-nav {
     position: static;
-    border-top: 1px solid #707070;
     background: #592c88;
     width: 100%;
   }
@@ -580,6 +769,9 @@ main {
     display: inline;
     vertical-align: middle;
     padding-right: 5px;
+  }
+  .main-nav button:hover span {
+    color: #c1a775;
   }
   .main-nav button > div {
     position: relative;
