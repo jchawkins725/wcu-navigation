@@ -14,26 +14,13 @@ var siteNav = {
     third ? third.classList.remove("open") : null;
   },
   inputColor: function () {
-    this.value !== ""
-      ? this.nextElementSibling.classList.add("active")
-      : this.nextElementSibling.classList.remove("active");
+    this.value !== "" ? this.nextElementSibling.classList.add("active") : this.nextElementSibling.classList.remove("active");
   },
   toggleSearch: function () {
-    if (
-      !siteSearchToggle.classList.contains("open") &&
-      this.id === "search-toggle-nav"
-    ) {
-      siteNav.open(
-        siteSearchToggle,
-        siteSearchToggle.nextElementSibling,
-        siteSearchClose
-      );
+    if (siteSearchToggle.classList.contains("open")) {
+      siteNav.close(siteSearchToggle, siteSearchToggle.nextElementSibling, siteSearchClose);
     } else {
-      siteNav.close(
-        siteSearchToggle,
-        siteSearchToggle.nextElementSibling,
-        siteSearchClose
-      );
+      siteNav.open(siteSearchToggle, siteSearchToggle.nextElementSibling, siteSearchClose);
     }
   },
   toggleMenu: function (e) {
@@ -41,110 +28,71 @@ var siteNav = {
     for (var i = 0; i < auxMenus.length; i++) {
       siteNav.close(auxMenus[i], auxMenus[i].nextElementSibling);
     }
-    opened
-      ? siteNav.close(this, this.nextElementSibling)
-      : siteNav.open(this, this.nextElementSibling);
+    opened ? siteNav.close(this, this.nextElementSibling) : siteNav.open(this, this.nextElementSibling);
     e.preventDefault();
     return false;
   },
-  toggleHam: function () {
-    var opened = this.classList.contains("open");
-    if (opened) {
-      siteNav.close(
-        this,
-        this.parentElement.parentElement.nextElementSibling,
-        closeHamBtn
-      );
-      document
-        .querySelector(".dark-background-overlay")
-        .classList.remove("open");
-      document.querySelector("body").classList.remove("ham-open");
-      this.classList.add("reverse");
-    } else {
-      siteNav.open(
-        this,
-        this.parentElement.parentElement.nextElementSibling,
-        closeHamBtn
-      );
-      document.querySelector(".dark-background-overlay").classList.add("open");
-      document.querySelector("body").classList.add("ham-open");
-      this.classList.remove('reverse')
-    }
+  openHam: function () {
+    siteNav.open(closeHamBtn, document.getElementById("site-ham-menu"), toggleHamBtn);
+    hamBackOverlay.classList.add("open");
+    document.querySelector("body").classList.add("ham-open");
+    toggleHamBtn.classList.remove("reverse");
   },
   closeHam: function () {
-    siteNav.close(
-      closeHamBtn,
-      document.getElementById("site-ham-menu"),
-      toggleHamBtn
-    );
-    document.querySelector(".dark-background-overlay").classList.remove("open");
+    siteNav.close(closeHamBtn, document.getElementById("site-ham-menu"), toggleHamBtn);
+    hamBackOverlay.classList.remove("open");
     document.querySelector("body").classList.remove("ham-open");
+    toggleHamBtn.classList.add("reverse");
+  },
+  toggleHam: function () {
+    var opened = this.classList.contains("open");
+    opened ? siteNav.closeHam() : siteNav.openHam();
   },
   closeHamClick: function (e) {
     var hamContainer = document.querySelector("#site-nav .ham-menu");
-    if (
-      hamContainer.classList.contains("open") &&
-      document.querySelector('.dark-background-overlay').contains(e.target)
-    ) {
+    if (hamContainer.classList.contains("open") && hamBackOverlay.contains(e.target)) {
       siteNav.closeHam();
+    }
+  },
+  changeMenuHeights: function (el, type) {
+    var openedHamMenus = document.querySelectorAll("#site-ham-menu li.open");
+    var openedSibling = el.parentElement.parentElement.querySelector("li.open > ul");
+    var siblingHeight = openedSibling ? openedSibling.offsetHeight : 0;
+    for (var i = 0; i < openedHamMenus.length; i++) {
+      var openedList = openedHamMenus[i].children[openedHamMenus[i].children.length - 1];
+      var listHeight =
+        type === "closing" ? -Math.abs(el.nextElementSibling.offsetHeight) : el.nextElementSibling.childElementCount * 40 - siblingHeight;
+      var subtractedHeight = openedList.offsetHeight + listHeight;
+      openedList.style.height = subtractedHeight + "px";
+    }
+  },
+  closeSubMenus: function (el) {
+    var openedHamLists = el.nextElementSibling.getElementsByTagName("ul");
+    for (var i = 0; i < openedHamLists.length; i++) {
+      siteNav.close(openedHamLists[i].previousElementSibling, openedHamLists[i].parentElement);
+      openedHamLists[i].style.height = "0px";
+    }
+  },
+  closeSiblings: function (el) {
+    var allOpenedSiblings = el.parentElement.parentElement.querySelectorAll("button.open");
+    if (allOpenedSiblings.length > 0) {
+      for (var i = 0; i < allOpenedSiblings.length; i++) {
+        siteNav.close(allOpenedSiblings[i], allOpenedSiblings[i].parentElement);
+        allOpenedSiblings[i].nextElementSibling.style.height = "0px";
+      }
     }
   },
   toggleMenusHam: function () {
     if (this.classList.contains("open")) {
-      var openedHamMenus = document.querySelectorAll("#site-ham-menu li.open");
-      var childHeight = this.nextElementSibling.childElementCount * 40;
-      var openedHamLists = this.nextElementSibling.getElementsByTagName("ul");
-      for (var i = 0; i < openedHamMenus.length; i++) {
-        var subtractedHeight = this.nextElementSibling.offsetHeight;
-        var openedList =
-          openedHamMenus[i].children[openedHamMenus[i].children.length - 1];
-        openedList.style.height =
-          openedList.offsetHeight - subtractedHeight + "px";
-      }
+      siteNav.changeMenuHeights(this, "closing");
+      siteNav.closeSubMenus(this);
       siteNav.close(this, this.parentElement);
       this.nextElementSibling.style.height = "0px";
-      for (var i = 0; i < openedHamLists.length; i++) {
-        siteNav.close(
-          openedHamLists[i].previousElementSibling,
-          openedHamLists[i].parentElement
-        );
-        openedHamLists[i].style.height = "0px";
-      }
     } else {
-      var allOpenedLists = document.querySelectorAll("#site-ham-menu li.open");
-      var allOpenedSiblings = this.parentElement.parentElement.querySelectorAll(
-        "button.open"
-      );
-      var clickedList = this.parentElement.parentElement.querySelector(
-        "li.open > ul"
-      );
-      var subtractedHeight = clickedList ? clickedList.offsetHeight : 0;
-      var addedHeight = this.nextElementSibling.childElementCount * 40;
-      if (allOpenedSiblings.length > 0) {
-        for (var i = 0; i < allOpenedLists.length; i++) {
-          var openedList =
-            allOpenedLists[i].children[allOpenedLists[i].children.length - 1];
-          var testing =
-            openedList.offsetHeight - subtractedHeight + addedHeight;
-          openedList.style.height = testing + "px";
-        }
-        for (var i = 0; i < allOpenedSiblings.length; i++) {
-          siteNav.close(
-            allOpenedSiblings[i],
-            allOpenedSiblings[i].parentElement
-          );
-          allOpenedSiblings[i].nextElementSibling.style.height = "0px";
-        }
-      } else {
-        for (var i = 0; i < allOpenedLists.length; i++) {
-          var openedList =
-            allOpenedLists[i].children[allOpenedLists[i].children.length - 1];
-          var testing = openedList.offsetHeight + addedHeight;
-          openedList.style.height = testing + "px";
-        }
-      }
+      siteNav.changeMenuHeights(this, "opening");
+      siteNav.closeSiblings(this);
       siteNav.open(this, this.parentElement);
-      this.nextElementSibling.style.height = addedHeight + "px";
+      this.nextElementSibling.style.height = this.nextElementSibling.childElementCount * 40 + "px";
     }
   },
   stickyNav: function () {
@@ -161,25 +109,17 @@ var siteSearchToggle = document.querySelector("#site-nav #search-toggle-nav");
 var siteSearchClose = document.querySelector("#site-nav #search-close-nav");
 siteSearchToggle.addEventListener("click", siteNav.toggleSearch);
 siteSearchClose.addEventListener("click", siteNav.toggleSearch);
-document
-  .querySelector("#site-nav #as_q")
-  .addEventListener("input", siteNav.inputColor);
+document.querySelector("#site-nav #as_q").addEventListener("input", siteNav.inputColor);
 
 //aux menus
 var auxMenus = document.querySelectorAll("#site-nav .aux-menu > li > a");
 for (var i = 0; i < auxMenus.length; i++) {
   auxMenus[i].addEventListener("click", siteNav.toggleMenu);
   auxMenus[i].parentElement.addEventListener("mouseover", function () {
-    siteNav.open(
-      this.firstElementChild,
-      this.firstElementChild.nextElementSibling
-    );
+    siteNav.open(this.firstElementChild, this.firstElementChild.nextElementSibling);
   });
   auxMenus[i].parentElement.addEventListener("mouseout", function () {
-    siteNav.close(
-      this.firstElementChild,
-      this.firstElementChild.nextElementSibling
-    );
+    siteNav.close(this.firstElementChild, this.firstElementChild.nextElementSibling);
   });
 }
 
@@ -187,6 +127,7 @@ for (var i = 0; i < auxMenus.length; i++) {
 var toggleHamBtn = document.querySelector("#site-nav #site-ham-btn");
 var closeHamBtn = document.querySelector("#site-nav #site-ham-close");
 var toggleHamBtns = document.querySelectorAll("#site-ham-menu ul button");
+var hamBackOverlay = document.querySelector(".dark-background-overlay");
 document.addEventListener("click", siteNav.closeHamClick);
 toggleHamBtn.addEventListener("click", siteNav.toggleHam);
 closeHamBtn.addEventListener("click", siteNav.closeHam);
