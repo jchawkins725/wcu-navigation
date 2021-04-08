@@ -599,6 +599,10 @@ main {
     letter-spacing: 0.02em;
     display: block;
     padding: 0px 20px;
+    position: relative;
+  }
+  .aux-menu > li > a.open {
+    color:#c1a775;
   }
   .aux-menu > li > a:after {
     content: "\f078";
@@ -611,18 +615,32 @@ main {
   .aux-menu li ul {
     background: white;
     position: absolute;
-    padding: 20px;
-    min-width: 200px;
-    border: solid 1px #7f7f7f;
+    padding: 10px 20px 20px;
+    min-width: 215px;
+    border: solid 1px #cecece;
     visibility: hidden;
     z-index: 1;
+  }
+  .aux-menu li:nth-of-type(3) ul {
+    right: -46px;
   }
   .aux-menu li ul li {
     opacity: 0;
     transform: translateY(-5px);
   }
+  .aux-menu li ul li.aux-h4 {
+    text-transform: uppercase;
+    font-size: 16px;
+    margin-top:10px;
+  }
   .aux-menu li ul li:not(.aux-h4) a {
     color: #66288b;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+  }
+  .aux-menu li ul li a:hover {
+    text-decoration:underline;
   }
   .aux-menu li ul.open {
     visibility: visible;
@@ -772,6 +790,9 @@ main {
   }
   .main-nav .nav-container h2 {
     display: block;
+  }
+  .main-nav .nav-container a:hover h2 {
+    color: #c1a775;
   }
   .main-nav .nav-container button {
     width: auto;
